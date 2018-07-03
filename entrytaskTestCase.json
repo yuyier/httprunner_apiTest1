@@ -1,0 +1,59 @@
+[
+    {
+        "config": {
+            "name": "testset description",
+            "variables": [],
+            "request": {
+                "base_url": "",
+                "headers": {
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/603.3.8 (KHTML, like Gecko) Version/10.1.2 Safari/603.3.8"
+                }
+            }
+        }
+    },
+    {
+        "test": {
+            "name": "/shopee/test",
+            "request": {
+                "params": {
+                    "a": "1",
+                    "b": "\"nihao\""
+                },
+                "url": "http://entrytask:5000/shopee/test",
+                "method": "GET"
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.error_code",
+                        "0"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.error_message",
+                        "success"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.reference",
+                        "111"
+                    ]
+                }
+            ]
+        }
+    }
+]
